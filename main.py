@@ -711,6 +711,10 @@ def contact():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route("/api/health", methods=['GET'])
+def health():
+    return jsonify({'status': 'ok'}), 200
+
 @app.route('/api/profile', methods=['GET'])
 @token_required
 def get_profile(user_id):
